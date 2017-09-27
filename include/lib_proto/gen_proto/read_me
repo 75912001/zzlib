@@ -1,0 +1,1 @@
+#xml文件中的share.xml文件生成的是指定的公共结构体share.h,该文件被其它*.xml文件生成的*.h文件作为头文件include
