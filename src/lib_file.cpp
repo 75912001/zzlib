@@ -27,9 +27,9 @@ int el::lib_file_t::get_dir_file( const char *path, std::vector<std::string>& fi
 }
 #endif
 
+#ifndef WIN32
 int el::lib_file_t::set_io_block( int fd, bool is_block )
 {
-#ifndef WIN32
 	int val;
 	if (is_block) {
 		val = (~O_NONBLOCK & ::fcntl(fd, F_GETFL));
@@ -37,7 +37,10 @@ int el::lib_file_t::set_io_block( int fd, bool is_block )
 		val = (O_NONBLOCK | ::fcntl(fd, F_GETFL));
 	}
 	return ::fcntl(fd, F_SETFL, val);
+}
 #else
+int el::lib_file_t::set_io_block( int fd, bool is_block )
+{
 	u_long mode = 0;
 	if (!is_block){
 		mode = 1;
@@ -47,8 +50,8 @@ int el::lib_file_t::set_io_block( int fd, bool is_block )
 		return SOCKET_ERROR; 
 	}
 	return SUCC;
-#endif
 }
+#endif
 
 int el::lib_file_t::fcntl_add_flag( int fd, int add_flag )
 {
