@@ -2,9 +2,8 @@
 
 EXE=libel.so
 
-#请在用户目录下创建endless文件夹,用来存放so
-
-TAG_DIR=$(SERVER_HOME)/endless
+#请在用户目录下创建el文件夹,用来存放so
+#EL_LIB
 
 CC=g++ -std=c++0x
 
@@ -23,14 +22,13 @@ LOCAL_SRCS_WEBSOCKET=$(wildcard ./lib_websocket/*.cpp)
 
 $(EXE):
 	$(CC) $(LOCAL_SRCS) $(LOCAL_SRCS_NET) $(LOCAL_SRCS_PROTO) $(LOCAL_SRCS_WEBSOCKET) $(INCLUDES) $(LINK) $(FLAG) $@
-	mkdir -p $(TAG_DIR)
-	cp -f $@ $(TAG_DIR)
-	mkdir -p $(EL_LIB_INCLUDE)
-	cp -rf $(LOCAL_INCLUDE) $(EL_LIB_INCLUDE)
+	mkdir -p $(EL_LIB)
+	cp -f $@ $(EL_LIB)
+	cp -rf $(LOCAL_INCLUDE) $(EL_LIB)
 	rm $@
 install:
 # 将头文件放入指定的目录中
 # 将SO放入指定的目录中
 clean:
 	rm $(EXE) *.o -f
-#ln -s $(LOCAL_INCLUDE) $(TAG_DIR)lib_include
+

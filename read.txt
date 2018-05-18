@@ -1,9 +1,6 @@
-need glib
-
 centos:
-yum install glibc-devel
+yum install libxml2-devel
 
 ubuntu:
 sudo apt-get install libxml2-dev
-
 sudo apt-get install libzip-dev
