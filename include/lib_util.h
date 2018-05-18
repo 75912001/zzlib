@@ -405,14 +405,18 @@ namespace el{
 		return max_cnt;
 	}
 	//////////////////////////////////////////////////////////////////////////
-	//权重	
-
-// 	bool g_weight(uint32_t sum){
-// 
-// 	}
-
-	//////////////////////////////////////////////////////////////////////////
-	
+	// 是否有重复数据 	
+	template <typename T>
+	inline bool g_is_repeat(std::vector<T>& v){
+		std::set<T> s;
+		FOREACH(v, it){
+			T& r = *it;
+			if (!s.insert(r).second){
+				return true;
+			}
+		}
+		return false;
+	}
 
 	/**
 	 * @brief 用于生成在limit限制范围内的序列号(不生成0)，删除之后才能重复使用	
