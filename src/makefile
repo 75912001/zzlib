@@ -22,9 +22,9 @@ LOCAL_SRCS_WEBSOCKET=$(wildcard ./lib_websocket/*.cpp)
 
 $(EXE):
 	$(CC) $(LOCAL_SRCS) $(LOCAL_SRCS_NET) $(LOCAL_SRCS_PROTO) $(LOCAL_SRCS_WEBSOCKET) $(INCLUDES) $(LINK) $(FLAG) $@
-	mkdir -p $(EL_LIB)
-	cp -f $@ $(EL_LIB)
-	cp -rf $(LOCAL_INCLUDE) $(EL_LIB)
+	mkdir -p $(EL_LIB_PATH)
+	cp -f $@ $(EL_LIB_PATH)
+	cp -rf $(LOCAL_INCLUDE) $(EL_LIB_INCLUDE)
 	rm $@
 install:
 # 将头文件放入指定的目录中
