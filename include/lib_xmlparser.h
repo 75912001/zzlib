@@ -2,8 +2,8 @@
 	platform:	
 	author:		kevin
 	copyright:	All rights reserved.
-	purpose:	utilities for parsing xml files
-				使用方法：
+	purpose:	utilities for parsing xml files\n
+				使用方法：请参阅test/xml.cpp和xml.xml	
 				g++ xml.cpp -I/usr/include/libxml2 -lxml2 -lel
 
 				sudo apt-get install libxml2
@@ -24,8 +24,8 @@ namespace el{
 
 	struct lib_xmlparser_t{
 	public:
-		xmlDocPtr doc_ptr;//定义解析文档指针		
-		xmlNodePtr node_ptr;//定义结点指针(你需要它为了在各个结点间移动)		
+		xmlDocPtr doc_ptr;//定义解析文档指针	
+		xmlNodePtr node_ptr;//定义结点指针(你需要它为了在各个结点间移动)	
 
 		typedef std::ios_base& (&manip_t)(std::ios_base&);
 	public:
