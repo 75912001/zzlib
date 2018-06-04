@@ -282,7 +282,7 @@ namespace el{
 		}
 
 
-		// @brief:	计算近天是周几(周一:1 ~ 周日:7)	
+		// @brief:	计算今天是周几(周一:1 ~ 周日:7)	
 		static inline uint32_t time_week_today(void)
 		{
 			time_t now_time;
