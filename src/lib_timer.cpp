@@ -3,7 +3,7 @@
 
 el::lib_timer_t* g_timer = NULL;
 
-//4,6,8,10,12
+//4,8,16,32,64
 #define GEN_TIME_INTERVAL(__idx__) (1 << ((__idx__) + 2))
 
 void el::lib_timer_t::setup_timer()

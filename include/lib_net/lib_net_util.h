@@ -9,6 +9,9 @@
 
 #include "lib_include.h"
 
+//todo 控制在1400 字节内
+//SO_MAX_MSG_SIZE
+
 namespace el{
 	enum E_FD_TYPE{
 		FD_TYPE_UNUSED = 0,
