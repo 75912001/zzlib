@@ -16,7 +16,8 @@ int el::lib_mcast_t::create(const std::string& mcast_ip, uint16_t mcast_port,
 
 	this->fd = ::socket(AF_INET, SOCK_DGRAM, 0);
 	if (INVALID_FD == this->fd) {
-		ALERT_LOG("failed to create mcast_fd [err_code:%d, err:%s]", errno, strerror(errno));
+		ALERT_LOG("failed to create mcast_fd [err_code:%d, err:%s, %s, %d, %s, %s]", 
+		errno, strerror(errno), this->mcast_ip.c_str(), this->mcast_port, this->mcast_incoming_if.c_str(), this->mcast_outgoing_if.c_str());
 		return ERR;
 	}
 
