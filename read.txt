@@ -1,5 +1,34 @@
 centos:
+yum install -y gcc-c++
+
 yum install libxml2-devel
+
+yum install cmake
+
+yum install mysql-community-devel
+
+eyC034dHls:s
+
+
+CentOS6.6将gcc升级至4.8.2的过程：
+#安装仓库
+wget http://people.centos.org/tru/devtools-2/devtools-2.repo
+mv devtools-2.repo /etc/yum.repos.d
+ 
+#升级gcc等
+yum install devtoolset-2-gcc devtoolset-2-binutils devtoolset-2-gcc-c++
+#保存以前的gcc
+mv /usr/bin/gcc /usr/bin/gcc-4.4.7
+mv /usr/bin/g++ /usr/bin/g++-4.4.7
+mv /usr/bin/c++ /usr/bin/c++-4.4.7
+ 
+#为新版本的gcc创建软连接
+ln -s /opt/rh/devtoolset-2/root/usr/bin/gcc /usr/bin/gcc
+ln -s /opt/rh/devtoolset-2/root/usr/bin/c++ /usr/bin/c++
+ln -s /opt/rh/devtoolset-2/root/usr/bin/g++ /usr/bin/g++
+
+
+
 
 ubuntu:
 sudo apt-get install libxml2-dev
